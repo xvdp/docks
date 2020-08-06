@@ -1,0 +1,1 @@
+source activate abh1 && pip install $HOME/work/Ubu/. && pip install $HOME/work/augment/.
