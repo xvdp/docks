@@ -23,11 +23,6 @@ RUN curl -so ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-lates
 ENV PATH=/home/z/miniconda/bin:$PATH
 ENV CONDA_AUTO_UPDATE_CONDA=false
 
-RUN conda config --add channels conda-forge
-# RUN conda create --name abh python=3
-RUN conda init
+RUN conda config --add channels conda-forge && conda init bash
+
 CMD /bin/bash
-
-
-
-

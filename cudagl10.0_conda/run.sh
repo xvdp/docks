@@ -1,5 +1,5 @@
 
-NAME="xvdp/cudagl10.1_conda"
+NAME="xvdp/cudagl10.0_conda"
 DATA=data
 WORK=work
 MEDIA=Malatesta
