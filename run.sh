@@ -7,6 +7,7 @@ DATA=data
 WORK=work
 MEDIA=Malatesta
 MEDIA2=Elements
+SHARE=share
 SHM=16G
 BASH=0
 
@@ -36,6 +37,7 @@ fi
 
 WORK=$HOME"/"$WORK
 DATA=$HOME"/"$DATA
+SHARE=$HOME"/"$SHARE
 PYHIST=$HOME"/.python_history"
 MEDIA=/media/$USER/$MEDIA
 MEDIA2=/media/$USER/$MEDIA2
@@ -53,8 +55,8 @@ done
 # --network=host
 
 if [ $BASH = 0 ]; then
-    docker run --gpus all --shm-size=$SHM --publish $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $PYHIST:$PYHIST -it --rm $NAME
+    docker run --gpus all --shm-size=$SHM --publish $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $PYHIST:$PYHIST -it --rm $NAME
 else
     echo "using port $PORT"
-    docker run --gpus all --shm-size=$SHM --publish $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $PYHIST:$PYHIST -it --entrypoint /bin/bash --rm $NAME
+    docker run --gpus all --shm-size=$SHM --publish $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $PYHIST:$PYHIST -it --entrypoint /bin/bash --rm $NAME
 fi

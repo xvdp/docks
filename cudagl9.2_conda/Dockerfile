@@ -3,7 +3,7 @@ FROM nvidia/cudagl:9.2-devel-ubuntu18.04
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates apt-utils && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof sudo
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof sudo  xclip
 
 # Create a non-root user and switch to it.
 RUN adduser --disabled-password --gecos '' --shell /bin/bash z
