@@ -41,17 +41,8 @@ fi
 
 # jupyter
 if [ $BASH = 0 ]; then
-    if [ $NAME = "xvdp/pt1.3_tf1.14_cudagl10.0" ]; then
-        EXPOSED_PORT=8888
-    elif [ $NAME = "xvdp/pt1.5_tf2.2_cudagl10.1" ]; then 
-        EXPOSED_PORT=9999
-    elif [ $NAME = "xvdp/pt1.6_tf2.2_cudagl10.2" ]; then 
-        EXPOSED_PORT=7777
-    else
-        echo "Validate export port in Dockerfile for $NAME"
-        exit
-    fi
 
+    source ports.sh $NAME
     PORT=$EXPOSED_PORT
     # find first open port
     while :
@@ -64,11 +55,12 @@ if [ $BASH = 0 ]; then
     done
 
     echo "using port $PORT"
-    docker run --gpus all --shm-size=$SHM -p $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $PYHIST:$PYHIST -it --rm $NAME
+    docker run --gpus all --shm-size=$SHM -p $PORT:$EXPOSED_PORT -v $HOME:$HOME -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -it --rm $NAME
 elif [ $BASH = 2 ]; then
     # python
-    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $PYHIST:$PYHIST -it --entrypoint python --rm $NAME
+    docker run --gpus all --shm-size=$SHM -v $HOME:$HOME -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -it --entrypoint python --rm $NAME
 else
     # bash
-    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $PYHIST:$PYHIST -it --entrypoint /bin/bash --rm $NAME
+    docker run --gpus all --shm-size=$SHM -v $HOME:$HOME -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -it --entrypoint /bin/bash --rm $NAME
 fi
+

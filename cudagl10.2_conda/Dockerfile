@@ -2,7 +2,10 @@ FROM nvidia/cudagl:10.2-devel-ubuntu18.04
 
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates apt-utils && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof sudo xclip
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof xclip wget nano software-properties-common apt-transport-https
+
+RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
+RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" && apt install -y code && apt-get update
 
 # Create a non-root user and switch to it.
 RUN adduser --disabled-password --gecos '' --shell /bin/bash z

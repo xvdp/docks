@@ -24,9 +24,6 @@ AUTHOR=`echo "$AUTHOR" | tr '[:upper:]' '[:lower:]'`
 TAG=`echo "$TAG" | tr '[:upper:]' '[:lower:]'`
 
 NAME=$AUTHOR"/"$NAME":"$TAG
-
-
-#docker image remove $NAME
 docker build -t $NAME .
 
 

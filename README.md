@@ -11,6 +11,8 @@ docker build scripts for vrious versions of pytorch and tensorflow with multiple
 
 These dockers create standard environments for pytorch and tensorflow. Using jupyter or bash.
 ### WIP TODO: serialize installers
+### TODO - clean up $USER - this setup shares $USER with docker/$USER - this isnt clear in basecudagl??.?_conda images
+### TODO pass port from ports.sh to 
 
 ## Info
 After installation edit run files to point to data and media folders.
@@ -22,16 +24,26 @@ Docker images create and install into conda environment. Jupyter images start in
 Standard aliases are created - specified in  `pt?.?_tf?.?_cudagl??.?/Dockerfile`
 * 'ab' activates conda environment inside image
 * 'aa' deactivates conda environment
-* 'cinit' initializes conda enviroment, pip installing local projects listed in `bash_entry_point.sh`.
+* 'init' initializes conda enviroment, pip installing local projects listed in `bash_entry_point.sh`.
 
 
 ## Examples
 ```bash
 # start same image and container in bash
-./run_pt1.3_tf1.14_cudagl10.0.sh
+./run.sh -n xvdp/pt1.3_tf1.14_cudagl10.0 -b1
+#or
+./t13bash
 ```
 ```bash
 # start same image and container in jupyter
-./run_pt1.3_tf1.14_cudagl10.0_jupyter.sh
+./run.sh -n xvdp/pt1.3_tf1.14_cudagl10.0
+#or
+./t13jupy
+```
+```bash
+# start same image and container in python
+./run.sh -n xvdp/pt1.3_tf1.14_cudagl10.0 -b2
+#or
+./t13py
 ```
 
