@@ -16,7 +16,7 @@ RUN pip install ipython requests ninja yacs cython matplotlib jupyter tqdm
 #aliases
 RUN echo 'alias ab="conda activate abh1"' >> ~/.bashrc && echo 'alias aa="conda deactivate"' >> ~/.bashrc &&  \
 echo "alias giturl='grep \"url\" .git/config | cut -d\"=\" -f2 | tr -d \" \t\n\r\" | xclip -sel clip && grep \"url\" .git/config | cut -d\"=\" -f2'"  >> ~/.bashrc \
-&& echo 'alias xpwd="pwd | xclip -sel clip"' >> ~/.bashrc &&echo 'alias init="eval `cat $HOME/.bash_entry_point.sh`"'  >> ~/.bashrc
+&& echo 'alias xpwd="pwd | xclip -sel clip"' >> ~/.bashrc && echo 'alias init="eval `cat $HOME/.bash_entry_point.sh`"'  >> ~/.bashrc
 COPY "bash_entry_point.sh" "$HOME/.bash_entry_point.sh"
 
 # associate port with image in ../ports.sh

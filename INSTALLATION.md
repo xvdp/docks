@@ -60,3 +60,7 @@ run.sh -b 1 #run with bash
 # or run the bash from docks/run_pt1.6_tf2.2_cudagl10.2.sh modifying working and data dirs
 ```
 
+7. add path to ~/.bashrc
+`export PATH="$PATH:/home/z/work/docks"`
+
+
