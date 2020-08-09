@@ -11,5 +11,3 @@ MEDIA2="/media/$USER/Elements"
 SHARE="$HOME/share"
 # shared memory
 SHM=`df -h /dev/shm | awk '{print $2}' | sed -n 2p`
-# histories
-PYHIST="$HOME/.python_history"

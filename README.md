@@ -12,8 +12,10 @@ docker build scripts for vrious versions of pytorch and tensorflow with multiple
 These dockers create standard environments for pytorch and tensorflow. Using jupyter or bash.
 ### TODO: serialize installers
 ### TODO pass port from ports.sh to Dockerfile
-### todo either remove vscode from docker or make it work
-### TODO persistence of histories
+### TODO either remove vscode from docker or make it work
+### TODO persistence of python history
+* ~/.python_history # doesnt work probably create persitent volume
+### TODO persistence of installed package
 
 ## Info
 After installation edit run files to point to data and media folders.
