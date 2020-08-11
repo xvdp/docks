@@ -1,8 +1,8 @@
 FROM nvidia/cudagl:10.1-devel-ubuntu18.04
 
 SHELL ["/bin/bash", "-c"]
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates apt-utils && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof xclip wget nano software-properties-common apt-transport-https
+RUN apt-get update && apt-get install -y apt-utils apt-transport-https ca-certificates software-properties-common && rm -rf /var/lib/apt/lists/* && \
+apt-get update && apt-get install -y --no-install-recommends apt-utils gnupg2 curl lsof xclip wget nano locate
 
 RUN wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | apt-key add -
 RUN add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" && apt install -y code && apt-get update

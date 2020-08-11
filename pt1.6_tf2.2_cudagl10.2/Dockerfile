@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-c"]
 
 RUN conda create -n abh2 python=3.8.5 numpy=1.18.5 opencv=4.4.0 accimage=0.1.1 
 RUN source activate abh2 && conda install pytorch torchvision cudatoolkit=10.2 -c pytorch
-RUN source activate abh2 && pip install tensorflow_gpu
+RUN source activate abh2 && pip install tensorflow_gpu scikit_learn=0.23.2
 
 RUN conda clean -ya
 

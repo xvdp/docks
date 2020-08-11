@@ -4,7 +4,7 @@ FROM xvdp/cudagl10.1_conda:latest
 SHELL ["/bin/bash", "-c"]
 
 COPY abh1_environment.yml abh1_environment.yml
-RUN conda env create -f abh1_environment.yml && rm abh1_environment.yml && source activate abh1 && conda clean -ya
+RUN conda env create -f abh1_environment.yml && rm abh1_environment.yml && source activate abh1 && conda clean -ya && pip install scikit_learn=0.23.2
 
 ENV CONDA_DEFAULT_ENV=abh1
 ENV CONDA_PREFIX=$HOME/miniconda/envs/$CONDA_DEFAULT_ENV

@@ -18,7 +18,7 @@ RUN source activate ${DEF_CONDA}
 # RUN pip install pyrender==0.1.39 cvui==2.7 opencv-python==4.1.1.26 simplification==0.4.2 pause==0.2
 # RUN pip install awscli pandas pycocotools beautifulsoup4 colour-science pyflow requests urllib3 pybind11 imageio grpcio pyglet
 
-RUN pip install ipython requests ninja yacs cython matplotlib jupyter tqdm pandas beautifulsoup4 pyflow colour-science pycocotools awscli
+RUN pip install ipython requests ninja yacs cython matplotlib jupyter tqdm pandas beautifulsoup4 pyflow colour-science pycocotools awscli scikit_learn=0.23.2
 
 #aliases
 RUN echo 'alias ab="conda activate abg8"' >> ~/.bashrc && echo 'alias aa="conda deactivate"' >> ~/.bashrc &&  \

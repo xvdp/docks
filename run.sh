@@ -57,11 +57,10 @@ if [ $BASH = 0 ]; then
             ((PORT+=1))
         fi
     done
-
-    docker run --gpus all --shm-size=$SHM -p $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -it --rm $NAME
+    docker run --gpus all --shm-size=$SHM -p $PORT:$EXPOSED_PORT -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $TCACHE:$TCACHE -it --rm $NAME
 elif [ $BASH = 2 ]; then
     # python
-    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE-it --entrypoint python -w $FOLDER --rm $NAME
+    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $TCACHE:$TCACHE -it --entrypoint python -w $FOLDER --rm $NAME
 else
     # PH=$HOME/.docker/.python_history
     # DPH=$HOME/.python_history
@@ -69,5 +68,5 @@ else
     BH=$HOME/.docker/.bash_history
     DBH=$HOME/.bash_history
     touch $BH
-    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $BH:$DBH -it --entrypoint /bin/bash -w $FOLDER --rm $NAME
+    docker run --gpus all --shm-size=$SHM -v $DATA:$DATA -v $WORK:$WORK -v $MEDIA:$MEDIA -v $MEDIA2:$MEDIA2 -v $SHARE:$SHARE -v $TCACHE:$TCACHE -v $BH:$DBH -it --entrypoint /bin/bash -w $FOLDER --rm $NAME
 fi

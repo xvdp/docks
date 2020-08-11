@@ -9,5 +9,8 @@ DATA="$HOME/data"
 MEDIA="/media/$USER/Malatesta"
 MEDIA2="/media/$USER/Elements"
 SHARE="$HOME/share"
+# torch cache
+TCACHE="$HOME/.cache/torch"
+
 # shared memory
 SHM=`df -h /dev/shm | awk '{print $2}' | sed -n 2p`
